@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+
+<body>
+    <div id="timer">00:00:00</div>
+    <button id="startTimer">Start Timer</button>
+
+    <script>
+        const timerDisplay = document.getElementById("timer");
+        const startButton = document.getElementById("startTimer");
+        let countdown;
+
+        function startTimer(duration) {
+            let timer = duration, hours, minutes, seconds;
+            countdown = setInterval(() => {
+                hours = Math.floor(timer / 3600);
+                minutes = Math.floor((timer % 3600) / 60);
+                console.log(minutes);
+                seconds = timer % 60;
+                console.log(seconds);
+
+                timerDisplay.textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (--timer < 0) {
+                    clearInterval(countdown);
+                    timerDisplay.textContent = "Time's up!";
+                }
+            }, 1000);
+        }
+
+        startButton.addEventListener("click", () => {
+            const duration = 3600; // 1 hour in seconds
+            startTimer(duration);
+        });
+    </script>
+</body>
+
+</html>

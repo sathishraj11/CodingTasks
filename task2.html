@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown2</title>
+</head>
+
+<body>
+    <select id="dropdown1">
+        <option value="" >Select Country</option>
+    </select>
+    <select id="dropdown2">
+        <option value="" >Select City</option>
+    </select>
+
+    <script>
+        const data = [
+            {
+                country: "India",
+                cities: ["Delhi", "Mumbai", "Chennai"]
+            },
+            {
+                country: "USA",
+                cities: ["New York", "San Francisco", "California"]
+            }
+        ];
+
+        const dropdown1 = document.getElementById("dropdown1");
+        const dropdown2 = document.getElementById("dropdown2");
+
+        // Populate country dropdown
+        data.forEach((item) => {
+            const countryOption = document.createElement("option");
+            countryOption.value = item.country;
+            countryOption.textContent = item.country;
+            dropdown1.appendChild(countryOption);
+        });
+
+        // Populate city dropdown based on country selection
+        dropdown1.addEventListener("change", function () {
+            const selectedCountry = this.value;
+            dropdown2.innerHTML = '<option value="" >Select City</option>'; // Reset dropdown
+
+            const countryData = data.find(item => item.country === selectedCountry);
+            if (countryData) {
+                countryData.cities.forEach(city => {
+                    const cityOption = document.createElement("option");
+                    cityOption.value = city;
+                    cityOption.textContent = city;
+                    dropdown2.appendChild(cityOption);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

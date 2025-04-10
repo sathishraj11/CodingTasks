@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Implementation</title>
+  <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-3xl font-bold mb-6">Dark Mode Examples</h1>
+    
+    <!-- CSS Variables Dark Mode Toggle -->
+    <div class="card">
+      <h2 class="text-xl font-bold mb-4">CSS Variables Approach</h2>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+        <span>Toggle Dark Mode</span>
+      </div>
+      
+      <p>This section uses CSS custom properties (variables) to implement dark mode. The transition between light and dark is smooth thanks to CSS transitions.</p>
+    </div>
+    
+   
+    <div class="mt-8">
+      <h2 class="text-xl font-bold mb-4">How it works</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>CSS Variables approach: Toggles a class on the body that changes CSS variables.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

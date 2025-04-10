@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Responsive NavBar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class=" nav-container">
+          
+          <button class="sidebar-toggle">
+            <span class="sidebar"></span>
+          </button>
+          <div class="side-drawer">
+            <a class="sidebar-links" href="#">Profile</a>
+            <a class="sidebar-links" href="#">Messages</a>
+            <a class="sidebar-links" href="#">Settings</a>
+          </div>
+
+          <div class="logo">My Website</div>
+           
+          <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          
+          <ul class="menu" id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Services</a>
+              <section class="dropdown-content">
+                <a href="#">Web Design</a>
+                <a href="#">Web Development</a>
+                <a href="#">SEO</a>
+              </section>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Products</a>
+              <section class="dropdown-content">
+                <a href="#">Product 1</a>
+                <a href="#">Product 2</a>
+                <a href="#">Product 3</a>
+              </section>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <script src="script.js"></script>  
+</body>

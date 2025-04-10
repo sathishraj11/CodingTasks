@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>25</td>
+                <td>50000</td>
+            </tr>
+            <tr>
+                <td>Jane</td>
+                <td>30</td>
+                <td>60000</td>
+            </tr>
+            <tr>
+                <td>Doe</td>
+                <td>22</td>
+                <td>45000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+     const table = document.getElementById("dataTable");
+     const header = document.querySelectorAll("th");
+
+     header.forEach((header,index)=>{
+        header.addEventListener("click",()=>{
+            sortTable(index);
+        });
+     });
+
+     function sortTable(columnIndex){
+        const rows = Array.from(table.querySelectorAll("tbody tr"));
+        const isAscending =!rows[0].querySelectorAll("td")[columnIndex].classList.contains("asc");
+        rows.sort((a,b)=>{
+            const aValue = a.querySelectorAll("td")[columnIndex].textContent;
+            console.log(aValue);
+            const bValue = b.querySelectorAll("td")[columnIndex].textContent;
+            console.log(bValue);
+            return isAscending ? aValue.localeCompare(bValue):bValue.localeCompare(aValue);
+        });
+
+            rows.forEach(row => table.querySelector("tbody").appendChild(row));
+            header.forEach(header => header.classList.remove("asc"));
+            header[columnIndex].classList.toggle("asc",isAscending);
+    
+     }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+</head>
+<body>
+    <select id="dropdown">
+        <option value="">options</option>
+    </select>
+
+    <script>
+        const data= ["option1","option2","option3","option4"];
+
+        const dropdown = document.getElementById("dropdown");
+
+        data.forEach((item)=>{
+            const option = document.createElement("option");
+            option.value = item;
+            option.textContent=item;
+            dropdown.appendChild(option);
+        })
+    </script>
+</body>
+</html>
