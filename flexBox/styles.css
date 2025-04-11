@@ -1,0 +1,203 @@
+.body {
+    background-color: azure;
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif; 
+}
+
+/* Main container with nested flex containers */
+.main-box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: space-around;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 80vh;
+    padding: 30px;
+    border: 2px solid #666;
+    background-color: #f0f8ff;
+    gap: 15px;
+    position: relative;
+}
+
+/* Base styles for all boxes */
+[class^="box"] {
+    background-color: aqua;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-basis: 22%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Box 1: Nested flexbox container with column direction */
+.box1 {
+    flex-grow: 2;
+    flex-shrink: 1;
+    background-color: #00ffff;
+    flex-direction: column;
+}
+
+.box1::before {
+    content: "Box 1";
+    align-self: center;
+    margin-bottom: 5px;
+}
+
+.box1-nested {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.box1-nested-item {
+    flex: 1 1 30%;
+    background-color: rgba(0, 200, 200, 0.5);
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Box 2: Demonstrating flex-basis with percentages and calc() */
+.box2 {
+    flex: 0 3 calc(25% - 20px);
+    align-self: flex-end;
+    background-color: #00cccc;
+    order: 1;
+}
+
+/* Box 3: Using flex-direction: column and nested items */
+.box3 {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #00aaaa;
+    height: 180px;
+}
+
+.box3-item {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 80%;
+    padding: 5px;
+    margin: 2px;
+}
+
+/* Box 4: Advanced order manipulation */
+.box4 {
+    flex-grow: 1;
+    order: -1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #008888;
+}
+
+/* Box 5: Using flex with auto margins for spacing */
+.box5 {
+    flex-basis: 30%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: #006666;
+}
+
+.box5-centered {
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+}
+
+/* Box 6: Demonstrating flex-wrap within a flex item */
+.box6 {
+    align-self: flex-end;
+    background-color: #004444;
+    order: 2;
+    flex-direction: column;
+}
+
+.box6-nested {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.box6-nested-item {
+    flex: 0 0 40%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Box 7: Using z-index and absolute positioning with flex */
+.box7 {
+    width: 150px;
+    flex-basis: auto;
+    background-color: #002222;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.box7::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    right: -15px;
+    top: -15px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+/* Box 8: Using flex-grow with different ratios */
+.box8 {
+    flex: 1 0 15%;
+    background-color: #00dddd;
+    align-self: stretch;
+    display: flex;
+    gap: 5px;
+}
+
+.box8-item-1 {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.box8-item-2 {
+    flex-grow: 2;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.box8-item-3 {
+    flex-grow: 3;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Media queries for responsive flexbox layouts */
+@media (max-width: 800px) {
+    .main-box {
+        flex-direction: column;
+    }
+    
+    [class^="box"] {
+        flex-basis: 100%;
+    }
+    
+    .box2 {
+        order: -2; /* Changes position on mobile */
+    }
+}
