@@ -1,0 +1,41 @@
+
+
+#game-container {
+    position: relative;
+    width: 1000px;
+    height: 1000px;
+}
+
+canvas {
+    display: block;
+    background-image: url("Assets/bg.jpg");
+    border: 5px solid green;
+   position: absolute;
+   left:25%;
+}
+
+#start-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#startGame {
+    padding: 15px 30px;
+    font-size: 20px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#startGame:hover {
+    background: limegreen;
+}
